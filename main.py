@@ -3,8 +3,10 @@ from recommend import recommend
 
 
 def main() -> None:
-    selected = select_movie()
-    videos = recommend(selected, 5)
+    selected = select_movie(input("Movie Title: "))
+    num = int(input("Number of movies [default: 5]: ") or 5)
+
+    videos = recommend(selected, num)
 
     log_movies(videos, end="\n")
 

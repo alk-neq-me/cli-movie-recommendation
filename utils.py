@@ -5,9 +5,7 @@ from dataset import model
 from exceptions import NotFoundMovie
 
 
-def select_movie() -> DataFrame:
-    title = input("Movie Title: ")
-
+def select_movie(title: str) -> DataFrame:
     movie: DataFrame = model.dataset.loc[model.dataset["title"] == title, "tags"]
     if not len(movie):
         raise NotFoundMovie(f"Not found movie with `{title}`")
